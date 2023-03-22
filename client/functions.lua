@@ -1,3 +1,4 @@
+local QBCore = exports['qb-core']:GetCoreObject()
 local currentVehicleEntity = nil
 local OriginalVehicle = {}
 local currentCamBone = nil
@@ -561,6 +562,7 @@ function PreviewColour(data)
 end
 
 RegisterNetEvent('qbx-customs:client:repairVehicle', function()
+    QBCore.Functions.Notify('Purchase Success', 'success', 7500)
     SetVehicleFixed(currentVehicleEntity)
 end)
 
@@ -631,6 +633,10 @@ function PurchaseCart(data)
 end
 
 RegisterNetEvent("qbx-customs:client:buyCart", function(data)
+    PurchaseCart(data)
+    QBCore.Functions.Notify('Purchase Success', 'success', 7500)
+end)
 
-
+RegisterNetEvent('qbx-customs:client:purchaseFail', function()
+    QBCore.Functions.Notify('Not Enough Money', 'error', 7500)
 end)

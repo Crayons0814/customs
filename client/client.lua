@@ -18,7 +18,7 @@ end)
 
 RegisterNUICallback("RepairVehicle", function(data, cb)
     -- RepairVehicle()
-    TriggerServerEvent('xv-customs:server:buyRepair', data)
+    TriggerServerEvent('qbx-customs:server:buyRepair')
     cb(1)
 end)
 
@@ -45,13 +45,15 @@ end)
 
 RegisterNUICallback("PurchaseCart", function(data, cb)
     local veh = cache.vehicle
+    local total = data.total
     
     local mods = QBCore.Functions.GetVehicleProperties(veh)
     local plate = QBCore.Functions.GetPlate(veh)
 
     local sendData = {
         plate = plate,
-        mods = mods
+        mods = mods,
+        total = total
     }
     
     TriggerServerEvent('qbx-customs:server:buyCart', sendData)

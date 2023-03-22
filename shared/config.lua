@@ -23,6 +23,8 @@ Config.Options = {
     },
 }
 
+Config.Money = "cash"
+
 Config.Prices = {
     -- Engine = {0, 3250, 5500, 10450, 15250, 20500}, you can override specific prices like this
     ["repair"] = 1000,

@@ -114,7 +114,7 @@
 					class="w-full bg-[color:var(--green)] text-[color:var(--white)] font-text font-bold active:brightness-90 hover:brightness-110"
 					on:click={() => {
 						buyModal = false
-						SendNUI('PurchaseCart', $cart)
+						SendNUI('PurchaseCart', {cart: $cart, total: total})
 					}}>BUY</button
 				>
 			</div>
